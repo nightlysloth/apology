@@ -42,7 +42,7 @@ noBtn.addEventListener('click', async () => {
 
     if (text) {
         // This sends her reply to your email via Formspree
-        fetch("https://formspree.io/f/your_form_id", {
+        fetch("https://formspree.io/f/xwvpwavz", {
             method: "POST",
             body: JSON.stringify({ message: text }),
             headers: { 'Content-Type': 'application/json' }
