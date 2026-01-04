@@ -3,54 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Universe ❤️</title>
-    
+    <title>For My Queen 🌹</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="animate__animated animate__zoomIn">I'm Sorry, Love... 🌹</h1>
-            <p class="animate__animated animate__fadeInUp animate__delay-1s">I made this for you because words aren't enough.</p>
-            <div class="scroll-indicator">Scroll down slowly</div>
+    <header class="hero">
+        <div class="glass-card animate__animated animate__fadeIn">
+            <h1>For You... 🌹</h1>
+            <p>I know I've been a bit of a fool lately. Scroll down to see why I'll never stop trying for us.</p>
+        </div>
+    </header>
+
+    <section class="reasons">
+        <h2 class="reveal">Tap to reveal my thoughts...</h2>
+        <div class="bubble-grid">
+            <div class="bubble" onclick="pop('Your Voice', 'It\'s the only thing that calms my mind after a long day.')">🎙️</div>
+            <div class="bubble" onclick="pop('Our Future', 'I still see us traveling the world together. Just you and me.')">✈️</div>
+            <div class="bubble" onclick="pop('Your Patience', 'Thank you for putting up with my moods. I\'m learning to be better.')">🧸</div>
+            <div class="bubble" onclick="pop('The Spark', 'Every time you look at me, I still get those day-one butterflies.')">🦋</div>
         </div>
     </section>
 
-    <section class="interactive-section">
-        <h2 class="reveal">Click the hearts...</h2>
-        <div class="bubble-container">
-            <div class="heart-bubble" data-msg="You're my safe place.">❤️</div>
-            <div class="heart-bubble" data-msg="Your smile is my favorite view.">✨</div>
-            <div class="heart-bubble" data-msg="I promise to listen more.">🤝</div>
-            <div class="heart-bubble" data-msg="Forever? Forever.">♾️</div>
+    <section class="story">
+        <div class="story-item reveal">
+            <h3>Remember the beginning?</h3>
+            <p>We were so nervous, but everything felt so right. That feeling hasn't changed for me.</p>
+        </div>
+        <div class="story-item reveal">
+            <h3>The way you care...</h3>
+            <p>Nobody looks after me like you do. You're my best friend and my home.</p>
+        </div>
+        <div class="story-item reveal">
+            <h3>I'm sorry for the doubt.</h3>
+            <p>I never want you to feel unloved. You are my priority, today and every day.</p>
         </div>
     </section>
 
-    <section class="story-section">
-        <div class="story-card reveal">
-            <h3>The Day We Started...</h3>
-            <p>Everything changed for the better. I don't want to lose that.</p>
-        </div>
-        <div class="story-card reveal">
-            <h3>Why I Love You...</h3>
-            <p>It's the way you care, the way you laugh, and even the way you get annoyed at me.</p>
-        </div>
-        <div class="story-card reveal">
-            <h3>Our Future...</h3>
-            <p>I still see every dream of mine involving you. Please don't doubt us.</p>
-        </div>
-    </section>
-
-    <section class="final-section">
-        <h2 class="reveal">Forgive me? 🥺</h2>
+    <section class="decision">
+        <h2 class="reveal">Are we okay? ❤️</h2>
         <div class="btn-group">
-            <button id="yesBtn" class="btn">YES! ❤️</button>
-            <button id="noBtn" class="btn">No 😤</button>
+            <button id="yesBtn" class="main-btn">YES! I forgive you</button>
+            <button id="noBtn" class="main-btn secondary">No 😤</button>
         </div>
     </section>
+
+    <div id="letterModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>My Love Letter to You 💌</h2>
+            <p>My Dearest [Her Name],<br><br>
+               I hate it when we fight. It feels like the world loses its color. Please know that my love for you is deeper than any argument we could ever have. You are my heart, my soul, and my everything.<br><br>
+               Let's make more memories and fewer mistakes. I love you forever.
+            </p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
