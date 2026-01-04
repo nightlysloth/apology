@@ -1,35 +1,47 @@
-// Short, sweet messages for the 6 roses
-const sweetMessages = {
-    1: "I'm really sorry. 🥺❤️",
-    2: "You are the best thing since March. 🌹",
-    3: "No doubts, just us. Forever. 🤞",
-    4: "You look cute even when you're mad. 😘",
-    5: "My heart only wants you, Swara. 💖",
-    6: "Let's start 2026 happy, please? ✨"
+// 1. Scroll Reveal Logic
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// 2. Heart Bubble Popups
+document.querySelectorAll('.heart-bubble').forEach(bubble => {
+    bubble.addEventListener('click', () => {
+        const msg = bubble.getAttribute('data-msg');
+        Swal.fire({
+            title: 'My Heart Says...',
+            text: msg,
+            background: '#151515',
+            color: '#fff',
+            confirmButtonColor: '#660000',
+            showClass: { popup: 'animate__animated animate__heartBeat' }
+        });
+    });
+});
+
+// 3. The Runaway "No" Button
+const noBtn = document.getElementById('no-btn');
+const moveButton = () => {
+    const x = Math.random() * (window.innerWidth - 150);
+    const y = Math.random() * (window.innerHeight - 150);
+    noBtn.style.left = `${x}px`;
+    noBtn.style.top = `${y}px`;
 };
 
-let openedRoses = new Set();
+document.getElementById('noBtn').addEventListener('mouseover', moveButton);
 
-function nextSection(id) {
-    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    window.scrollTo(0,0);
-}
-
-function openMessage(num) {
-    const overlay = document.getElementById('overlay');
-    const content = document.getElementById('popup-content');
-    
-    content.innerText = sweetMessages[num];
-    overlay.classList.add('active');
-    
-    openedRoses.add(num);
-    // Show final button after opening at least 4 roses
-    if(openedRoses.size >= 4) {
-        document.getElementById('finalBtn').classList.remove('hidden');
-    }
-}
-
-function closeMessage() {
-    document.getElementById('overlay').classList.remove('active');
-}
+// 4. Success Message
+document.getElementById('yesBtn').addEventListener('click', () => {
+    Swal.fire({
+        title: 'I Knew It! ❤️',
+        text: 'I love you to the moon and back. Thank you for forgiving me!',
+        icon: 'success',
+        background: '#151515',
+        color: '#fff'
+    });
+});
