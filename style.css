@@ -1,75 +1,61 @@
 :root {
-    --dark-rose: #660000;
-    --bright-rose: #8b0000;
-    --gold: #d4af37;
-    --bg-dark: #0a0a0a;
+    --rose: #4a0404;
+    --gold: #c5a059;
+    --white: #fffafa;
 }
 
 body {
-    margin: 0;
-    background-color: var(--bg-dark);
-    color: white;
-    font-family: 'Segoe UI', serif;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+    margin: 0; background: #000; color: var(--white);
+    font-family: 'Palatino', serif; scroll-behavior: smooth;
 }
 
-/* Hero Section with Rose Background */
+/* Parallax Hero */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), 
-                url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1500');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.hero h1 { font-size: 3.5rem; color: var(--gold); }
-
-/* Interactive Bubbles */
-.interactive-section { padding: 100px 20px; text-align: center; }
-.bubble-container { display: flex; justify-content: center; gap: 20px; margin-top: 50px; }
-
-.heart-bubble {
-    width: 80px; height: 80px;
-    background: var(--dark-rose);
-    border-radius: 50%;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://images.unsplash.com/photo-1550951160-8452485592ec?q=80&w=1500');
+    background-attachment: fixed; background-size: cover;
     display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    font-size: 1.5rem;
-    transition: 0.3s;
-    animation: floating 3s infinite ease-in-out;
 }
 
-.heart-bubble:hover { transform: scale(1.2); background: var(--bright-rose); }
-
-/* Story Cards */
-.story-card {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 30px;
-    background: #151515;
-    border-left: 4px solid var(--gold);
-    border-radius: 10px;
+.glass-card {
+    background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
+    padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);
+    text-align: center; max-width: 80%;
 }
 
-/* Scroll Reveal Animation */
-.reveal { opacity: 0; transform: translateY(30px); transition: 1s all ease; }
-.reveal.active { opacity: 1; transform: translateY(0); }
+h1 { color: var(--gold); font-size: 3rem; }
+
+/* Interactive Sections */
+section { min-height: 80vh; padding: 100px 20px; text-align: center; }
+
+.bubble-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 400px; margin: 40px auto; }
+.bubble {
+    font-size: 2rem; background: var(--rose); padding: 20px; 
+    border-radius: 50%; cursor: pointer; transition: 0.3s;
+}
+.bubble:hover { transform: scale(1.2); box-shadow: 0 0 20px var(--gold); }
+
+.story-item {
+    background: #111; margin: 40px auto; padding: 30px;
+    max-width: 600px; border-radius: 15px; border-bottom: 3px solid var(--gold);
+}
 
 /* Buttons */
-.final-section { height: 80vh; text-align: center; position: relative; padding-top: 100px; }
-.btn {
-    padding: 15px 40px; border-radius: 30px; border: none;
-    font-size: 1.2rem; cursor: pointer; font-weight: bold;
+.main-btn {
+    padding: 15px 40px; border-radius: 50px; border: none;
+    font-size: 1.2rem; cursor: pointer; font-weight: bold; margin: 10px;
+    background: var(--gold); transition: 0.3s;
 }
-#yesBtn { background: var(--gold); color: black; }
-#noBtn { background: #333; color: white; position: absolute; }
+.secondary { background: #333; color: white; position: absolute; }
 
-@keyframes floating {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+/* Scroll Reveal */
+.reveal { opacity: 0; transform: translateY(50px); transition: 1.5s; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* Modal Letter */
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
+.modal-content {
+    background: #fff; color: #333; margin: 10% auto; padding: 40px;
+    width: 80%; max-width: 500px; border-radius: 10px; line-height: 1.6;
 }
