@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Swara 🌹</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <section id="home" class="active hero-bg">
+        <div class="content-box dark-mode">
+            <h1 class="cursive big-text">Swara...</h1>
+            <p>I know things are messy right now. But I bought you these (virtually) to remind you how much I adore you.</p>
+            <button class="glow-btn" onclick="nextSection('roses-section')">Accept my peace offering? 🥺</button>
+        </div>
+    </section>
+
+    <section id="roses-section">
+        <h2 class="cursive red-text">Pick a Rose...</h2>
+        <p>A little reminder in every petal.</p>
+        
+        <div class="rose-garden">
+            <div class="rose-icon pulse" onclick="openMessage(1)">🌹</div>
+            <div class="rose-icon pulse delay-1" onclick="openMessage(2)">🌹</div>
+            <div class="rose-icon pulse delay-2" onclick="openMessage(3)">🌹</div>
+            <div class="rose-icon pulse delay-3" onclick="openMessage(4)">🌹</div>
+            <div class="rose-icon pulse delay-4" onclick="openMessage(5)">🌹</div>
+            <div class="rose-icon pulse delay-5" onclick="openMessage(6)">🌹</div>
+        </div>
+
+        <button id="finalBtn" class="hidden glow-btn red-btn" onclick="nextSection('final')">One last thing...</button>
+    </section>
+
+    <section id="final">
+        <div class="content-box pretty-paper">
+            <h2 class="cursive red-text">My Promise</h2>
+            <p>I am sorry for making you doubt us. You are my favorite person since March, and you will be my favorite person in 2026.</p>
+            <p>No more doubts. Just us. Let's end this year with a hug, please? ❤️</p>
+            <p class="cursive signature red-text">Love, Prateek</p>
+        </div>
+    </section>
+
+    <div id="overlay" class="overlay">
+        <div class="popup-cute">
+            <span class="close-btn" onclick="closeMessage()">&times;</span>
+            <div id="popup-content" class="popup-text-cute"></div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
