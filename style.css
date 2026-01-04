@@ -1,61 +1,81 @@
 :root {
-    --rose: #4a0404;
+    --rose-deep: #4a0404;
+    --rose-light: #8b0000;
     --gold: #c5a059;
     --white: #fffafa;
 }
 
 body {
     margin: 0; background: #000; color: var(--white);
-    font-family: 'Palatino', serif; scroll-behavior: smooth;
+    font-family: 'Georgia', serif; scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
-/* Parallax Hero */
+/* Parallax Hero - Dark Red Roses */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                url('https://images.unsplash.com/photo-1550951160-8452485592ec?q=80&w=1500');
-    background-attachment: fixed; background-size: cover;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('https://images.unsplash.com/photo-1548610762-65603791111b?q=80&w=1500');
+    background-attachment: fixed; background-size: cover; background-position: center;
     display: flex; align-items: center; justify-content: center;
 }
 
 .glass-card {
-    background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
-    padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);
-    text-align: center; max-width: 80%;
+    background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px);
+    padding: 50px; border-radius: 30px; border: 1px solid var(--rose-light);
+    text-align: center; max-width: 85%;
 }
 
-h1 { color: var(--gold); font-size: 3rem; }
+h1 { color: var(--gold); font-size: 2.5rem; margin-bottom: 20px; }
+.scroll-hint { margin-top: 30px; font-size: 0.9rem; color: var(--gold); animation: pulse 2s infinite; }
 
-/* Interactive Sections */
-section { min-height: 80vh; padding: 100px 20px; text-align: center; }
+/* Sections */
+section { min-height: 100vh; padding: 120px 20px; text-align: center; }
 
-.bubble-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 400px; margin: 40px auto; }
+.bubble-grid { 
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; 
+    max-width: 450px; margin: 50px auto; 
+}
+
 .bubble {
-    font-size: 2rem; background: var(--rose); padding: 20px; 
-    border-radius: 50%; cursor: pointer; transition: 0.3s;
+    font-size: 2.2rem; background: var(--rose-deep); padding: 25px; 
+    border-radius: 50%; cursor: pointer; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid var(--gold);
 }
-.bubble:hover { transform: scale(1.2); box-shadow: 0 0 20px var(--gold); }
+.bubble:hover { transform: scale(1.15) rotate(10deg); box-shadow: 0 0 25px var(--rose-light); }
 
+/* Story Items - Longer Cards */
 .story-item {
-    background: #111; margin: 40px auto; padding: 30px;
-    max-width: 600px; border-radius: 15px; border-bottom: 3px solid var(--gold);
+    background: #0a0a0a; margin: 60px auto; padding: 40px;
+    max-width: 700px; border-radius: 20px; 
+    border-right: 4px solid var(--gold);
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
 }
+
+.story-item h3 { color: var(--gold); margin-bottom: 15px; }
+.story-item p { line-height: 1.8; opacity: 0.9; }
 
 /* Buttons */
+.btn-group { margin-top: 50px; height: 200px; position: relative; }
 .main-btn {
-    padding: 15px 40px; border-radius: 50px; border: none;
-    font-size: 1.2rem; cursor: pointer; font-weight: bold; margin: 10px;
-    background: var(--gold); transition: 0.3s;
+    padding: 18px 45px; border-radius: 50px; border: none;
+    font-size: 1.1rem; cursor: pointer; font-weight: bold;
+    background: var(--gold); color: #000; transition: 0.3s;
 }
-.secondary { background: #333; color: white; position: absolute; }
+.secondary { background: #222; color: #fff; position: absolute; left: 50%; transform: translateX(-50%); }
 
-/* Scroll Reveal */
-.reveal { opacity: 0; transform: translateY(50px); transition: 1.5s; }
+/* Reveal Animation */
+.reveal { opacity: 0; transform: translateY(60px); transition: 1.2s ease-out; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
 /* Modal Letter */
-.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); }
 .modal-content {
-    background: #fff; color: #333; margin: 10% auto; padding: 40px;
-    width: 80%; max-width: 500px; border-radius: 10px; line-height: 1.6;
+    background: #fff; color: #222; margin: 5% auto; padding: 50px;
+    width: 85%; max-width: 550px; border-radius: 15px; 
+    background-image: radial-gradient(#f2f2f2 1px, transparent 1px);
+    background-size: 20px 20px; line-height: 1.7; position: relative;
 }
+.close { position: absolute; right: 20px; top: 10px; font-size: 30px; cursor: pointer; }
+
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
